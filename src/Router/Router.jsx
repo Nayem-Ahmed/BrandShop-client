@@ -7,6 +7,7 @@ import Cart from "../Components/Cart";
 import Login from "../Components/Login";
 import Blog from "../Components/Blog";
 import Contact from "../Components/Contact";
+import ProductbasedBrand from "../Components/ProductbasedBrand";
 
 const router = createBrowserRouter([
     {
@@ -38,6 +39,10 @@ const router = createBrowserRouter([
           {
             path:"/contact",
             element:<Contact></Contact>,
+          },
+          {
+            path:"/productbasedbrand/:productbasedbrandId",
+            element:<ProductbasedBrand></ProductbasedBrand>,
           },
         ],
     },

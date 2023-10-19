@@ -1,4 +1,6 @@
 import React from 'react';
+import swal from 'sweetalert';
+
 
 const Product = () => {
     const handleproductadd = (e)=>{
@@ -8,13 +10,32 @@ const Product = () => {
         const select = e.target.select.value; 
         const photo = e.target.photo.value;
         const description = e.target.description.value;
-        const addproduct = {name,brand,select,photo,description}
+        const rating = e.target.rating.value;
+        const addproduct = {name,brand,select,photo,description,rating}
         console.log(addproduct)
+        // send data to the server
+        fetch('http://localhost:5000/products',{
+            method:'POST',
+            headers:{
+                'content-type':'application/json'
+            },
+            body:JSON.stringify(addproduct)
+        })
+        .then(res => res.json())
+        .then(data=>{
+            console.log(data)
+            if (data.acknowledged) {
+                swal("Added Product!", "You clicked the button!", "success");
+
+                
+            }
+        })
 
     }
     return (
         <div>
-            <form onSubmit={handleproductadd} className="max-w-md mx-auto p-6 bg-white rounded-lg shadow-lg">
+            <form onSubmit={handleproductadd} className="max-w-md mx-auto p-6 mt-5 bg-white rounded-lg shadow-lg">
+                <h2 className='text-center font-semibold mb-5 text-xl'>Add Product</h2>
                 <div className="mb-4">
                     <label htmlFor="name" className="block text-gray-700 text-sm font-bold mb-2">
                         Name
@@ -41,7 +62,7 @@ const Product = () => {
                 </div>
                 <div className="mb-4">
                     <label htmlFor="car" className="block text-gray-700 text-sm font-bold mb-2">
-                        category
+                       Type
                     </label>
                     <select
                         id="car"
@@ -75,6 +96,20 @@ const Product = () => {
                         id="description"
                         name="description"
                         placeholder="Short Description"
+                        className="w-full border rounded py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                    />
+                </div>
+                <div className="mb-4">
+                    <label htmlFor="rating" className="block text-gray-700 text-sm font-bold mb-2">
+                        Rating
+                    </label>
+                    <input
+                        type="text"
+                        id="rating"
+                        name="rating"
+                        placeholder="Rating"
+                        // value={product.rating}
+                        // onChange={handleInputChange}
                         className="w-full border rounded py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                     />
                 </div>
