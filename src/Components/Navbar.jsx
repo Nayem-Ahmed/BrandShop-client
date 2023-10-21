@@ -21,8 +21,6 @@ const Navbar = () => {
         }
     }
 
-    
-  
  
     const link = <>
         <li className='font-semibold'><NavLink to='/'>Home</NavLink></li>
@@ -41,7 +39,7 @@ const Navbar = () => {
                     </ul>
                 </div>
                 <a className="btn btn-ghost normal-case text-xl">
-                    <img src={logo} alt="" />
+                    <img className='w-16 md:w-32' src={logo} alt="" />
                 </a>
             </div>
             <div className="navbar-center hidden lg:flex">
@@ -85,3 +83,4 @@ const Navbar = () => {
 };
 
 export default Navbar;
+

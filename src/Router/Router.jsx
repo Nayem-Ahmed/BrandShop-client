@@ -9,6 +9,7 @@ import ProductbasedBrand from "../Components/ProductbasedBrand";
 import SignUp from "../Components/SignUp";
 import Details from "../Components/Details";
 import Privetrouter from "./Privetrouter";
+import Update from "../Components/Update";
 // import Users from "../Components/Users";
 
 const router = createBrowserRouter([
@@ -42,6 +43,11 @@ const router = createBrowserRouter([
             path:"/details/:id",
             loader:({params})=> fetch(`http://localhost:5000/details/${params.id}`),
             element:<Privetrouter><Details></Details></Privetrouter>,
+          },
+          {
+            path:"/update/:id",
+            loader:({params})=> fetch(`http://localhost:5000/update/${params.id}`),
+            element:<Privetrouter><Update></Update></Privetrouter>,
           },
           {
             path:"/productbasedbrand/:productbasedbrandId",

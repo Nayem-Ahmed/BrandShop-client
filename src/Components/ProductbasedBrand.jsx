@@ -2,7 +2,6 @@ import {Link, useLoaderData } from "react-router-dom";
 // import Brand from "./Brand";
 const ProductbasedBrand = () => {
     const loaderbrand = useLoaderData()
-    console.log(loaderbrand)
     return (
         <div>
             <div className="carousel w-full h-80">
@@ -53,7 +52,9 @@ const ProductbasedBrand = () => {
                                 <Link to={`/details/${brandd._id}`} >
                                <button className="btn btn-accent">Details</button>
                                </Link>
+                                <Link to={`/update/${brandd._id}`} >                           
                                 <button className="btn btn-info">Update</button>
+                               </Link>
                             </div>
                         </div>
                     </div>
