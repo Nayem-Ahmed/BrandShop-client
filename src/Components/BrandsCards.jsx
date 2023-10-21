@@ -4,9 +4,8 @@ import BrandCard from './BrandCard';
 
 const BrandsCards = () => {
     const brandscradLoader = useLoaderData();
-    console.log(brandscradLoader)
     return (
-        <div>
+        <div >
         <h1 className="text-center py-5 md:text-4xl font-bold"><span className="text-pink-500">Brand</span>Names</h1>
        
        <div  className="grid md:grid-cols-3 gap-4 py-6">

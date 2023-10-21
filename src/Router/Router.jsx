@@ -5,9 +5,10 @@ import Home from "../Pages/Home";
 import Product from "../Components/Product";
 import Cart from "../Components/Cart";
 import Login from "../Components/Login";
-import Blog from "../Components/Blog";
-import Contact from "../Components/Contact";
 import ProductbasedBrand from "../Components/ProductbasedBrand";
+import SignUp from "../Components/SignUp";
+import Details from "../Components/Details";
+// import Users from "../Components/Users";
 
 const router = createBrowserRouter([
     {
@@ -33,15 +34,17 @@ const router = createBrowserRouter([
             element:<Login></Login>,
           },
           {
-            path:"/blog",
-            element:<Blog></Blog>,
+            path:"/signup",
+            element:<SignUp></SignUp>,
           },
           {
-            path:"/contact",
-            element:<Contact></Contact>,
+            path:"/details/:id",
+            loader:({params})=> fetch(`http://localhost:5000/details/${params.id}`),
+            element:<Details></Details>,
           },
           {
             path:"/productbasedbrand/:productbasedbrandId",
+            loader:({params})=> fetch(`http://localhost:5000/products/${params.productbasedbrandId}`),
             element:<ProductbasedBrand></ProductbasedBrand>,
           },
         ],

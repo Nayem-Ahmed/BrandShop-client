@@ -73,6 +73,8 @@ const Product = () => {
                         <option value="McDonald's">McDonald's</option>
                         <option value="Starbucks">Starbucks</option>
                         <option value="PepsiCo">PepsiCo</option>
+                        <option value="Nestlé">Nestlé</option>
+                        <option value="Kellogg's">Kellogg's</option>
                     </select>
                 </div>
                 <div className="mb-4">

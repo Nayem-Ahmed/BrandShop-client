@@ -1,21 +1,62 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { AuthContext } from '../Provider/Authprovider';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { FcGoogle } from 'react-icons/fc';
+import { ToastContainer, toast } from 'react-toastify';
 
 const Login = () => {
-  const {loginUser} = useContext(AuthContext)
+  const {loginUser,googleLogin} = useContext(AuthContext)
+  const [loginerror, setLoginerror] = useState("");
+  const location = useLocation()
+  const navigate = useNavigate()
     const handlelogin = (e)=>{
         e.preventDefault()
         const email = e.target.email.value;
         const password = e.target.password.value;
         console.log(email,password)
+        const user = {email};
         loginUser(email,password)
         .then((result) => {
           console.log(result.user)
+          fetch('http://localhost:5000/users',{
+            method:'post',
+            headers:{
+                'content-type':'application/json'
+            },
+            body:JSON.stringify(user)
+          })
+          .then(res=>res.json())
+          .then(data=>{
+            if (data.insertedId) {
+                swal("Login success!", "You clicked the button!", "success");
+                navigate(location?.state ? location.state : '/');
+                
+            }
+          })
 
         })
         .catch((error) => {
           console.error(error)
+          if (setLoginerror) {
+            toast('Incorrect password');
+            <ToastContainer />
+
+          }
         });
+
+    }
+    const handlelogingGoogle =()=>{
+      googleLogin()
+      .then(result => {
+        console.log(result.user);
+        if (setLoginsuccess) {
+          toast('Login Successful');
+          // navigate(location?.state ? location.state : '/');
+        }
+      })
+      .catch((error) => {
+        console.error(error);
+      });
 
     }
     return (
@@ -40,7 +81,13 @@ const Login = () => {
         </div>
         <div className="form-control mt-6">
           <button className="btn btn-primary">Login</button>
+          <i className="text-center">or</i>
         </div>
+        <button onClick={handlelogingGoogle} className="btn">
+                <FcGoogle className="text-xl"></FcGoogle>
+                Login With Google
+              </button>
+        <p>You have no account?<Link className='text-blue-600 underline' to='/signup'>Sign Up</Link></p>
       </form>
     </div>
   </div>
