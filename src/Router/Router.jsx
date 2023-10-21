@@ -8,6 +8,7 @@ import Login from "../Components/Login";
 import ProductbasedBrand from "../Components/ProductbasedBrand";
 import SignUp from "../Components/SignUp";
 import Details from "../Components/Details";
+import Privetrouter from "./Privetrouter";
 // import Users from "../Components/Users";
 
 const router = createBrowserRouter([
@@ -23,7 +24,7 @@ const router = createBrowserRouter([
           },
           {
             path:"/product",
-            element:<Product></Product>,
+            element:<Privetrouter><Product></Product></Privetrouter>,
           },
           {
             path:"/cart",
@@ -40,7 +41,7 @@ const router = createBrowserRouter([
           {
             path:"/details/:id",
             loader:({params})=> fetch(`http://localhost:5000/details/${params.id}`),
-            element:<Details></Details>,
+            element:<Privetrouter><Details></Details></Privetrouter>,
           },
           {
             path:"/productbasedbrand/:productbasedbrandId",

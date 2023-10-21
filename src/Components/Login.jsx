@@ -51,7 +51,7 @@ const Login = () => {
         console.log(result.user);
         if (setLoginsuccess) {
           toast('Login Successful');
-          // navigate(location?.state ? location.state : '/');
+          navigate(location?.state ? location.state : '/');
         }
       })
       .catch((error) => {
