@@ -22,8 +22,8 @@ const MyCart = ({ cart }) => {
             <div className="card-body">
                 <h2 className="card-title">{brand}</h2>
                 <p>{name}</p>
-                <p>{price}</p>
-                <p>{description }</p>
+                <p className='font-bold'>{price} $ </p>
+                <p className='text-gray-500'>{description }</p>
                 <div className="card-actions ">
                     <button onClick={()=>handledelete(_id)} className="btn btn-secondary">Delete</button>
                 </div>

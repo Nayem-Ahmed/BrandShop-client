@@ -19,19 +19,17 @@ const Login = () => {
         .then((result) => {
           console.log(result.user)
           fetch('http://localhost:5000/users',{
-            method:'post',
+            method:'POST',
             headers:{
                 'content-type':'application/json'
             },
             body:JSON.stringify(user)
           })
           .then(res=>res.json())
-          .then(data=>{
-            if (data.insertedId) {
+          .then(data=>{         
                 swal("Login success!", "You clicked the button!", "success");
                 navigate(location?.state ? location.state : '/');
                 
-            }
           })
 
         })
@@ -49,10 +47,10 @@ const Login = () => {
       googleLogin()
       .then(result => {
         console.log(result.user);
-        if (setLoginsuccess) {
+        
           toast('Login Successful');
           navigate(location?.state ? location.state : '/');
-        }
+    
       })
       .catch((error) => {
         console.error(error);
