@@ -1,6 +1,6 @@
 import React from 'react';
 
-const MyCart = ({ cart }) => {
+const MyCart = ({ cart,cartt,setCart }) => {
     const handledelete = (id)=>{
         fetch(`http://localhost:5000/cart/${id}`,{
             method: "DELETE",
@@ -10,8 +10,10 @@ const MyCart = ({ cart }) => {
           console.log(data)
           if(data.deletedCount>0){
             swal("Delete your product!", "You clicked the button!", "success");
-             
-          }
+            
+        }
+        const remaining = cartt.filter(car=> car._id !== id)
+        setCart(remaining)
         })
 
     }
