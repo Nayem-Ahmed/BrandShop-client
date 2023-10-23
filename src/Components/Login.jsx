@@ -18,7 +18,7 @@ const Login = () => {
         loginUser(email,password)
         .then((result) => {
           console.log(result.user)
-          fetch('http://localhost:5000/users',{
+          fetch('https://food-server-mu.vercel.app/details/users',{
             method:'POST',
             headers:{
                 'content-type':'application/json'

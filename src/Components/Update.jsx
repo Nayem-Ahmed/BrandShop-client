@@ -14,7 +14,7 @@ const Update = () => {
             const description = e.target.description.value;
             const rating = e.target.rating.value;
             const updateproduct = {name,brand,select,photo,description,rating}
-            fetch(`http://localhost:5000/update/${_id}`,{
+            fetch(`https://fooddb-server.vercel.app/update/${_id}`,{
                 method:'PUT',
                 headers:{
                     'content-type':'application/json'

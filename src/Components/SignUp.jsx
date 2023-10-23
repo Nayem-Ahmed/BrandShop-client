@@ -35,7 +35,7 @@ const SignUp = () => {
         .then((result) => {
           console.log(result.user)
           const user = {email,name,password,photo};
-          fetch('http://localhost:5000/users',{
+          fetch('https://food-server-mu.vercel.app/details/users',{
             method:'post',
             headers:{
                 'content-type':'application/json'

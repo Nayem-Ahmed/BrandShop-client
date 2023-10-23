@@ -8,7 +8,7 @@ const Details = () => {
 
     const handleaddcart = ()=>{
         const neww = {photo, brand, name, price, description}
-        fetch('http://localhost:5000/cart',{
+        fetch('https://fooddb-server.vercel.app/cart',{
             method:"POST",
             headers:{
                 'content-type':'application/json'

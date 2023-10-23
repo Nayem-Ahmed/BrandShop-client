@@ -29,7 +29,7 @@ const router = createBrowserRouter([
           },
           {
             path:"/cart",
-            loader:()=> fetch('http://localhost:5000/cart'),
+            loader:()=> fetch('https://fooddb-server.vercel.app/cart'),
             element:<Privetrouter><Cart></Cart></Privetrouter>,
           },
           {
@@ -42,17 +42,17 @@ const router = createBrowserRouter([
           },
           {
             path:"/details/:id",
-            loader:({params})=> fetch(`http://localhost:5000/details/${params.id}`),
+            loader:({params})=> fetch(`https://fooddb-server.vercel.app/details/${params.id}`),
             element:<Privetrouter><Details></Details></Privetrouter>,
           },
           {
             path:"/update/:id",
-            loader:({params})=> fetch(`http://localhost:5000/update/${params.id}`),
+            loader:({params})=> fetch(`https://fooddb-server.vercel.app/update/${params.id}`),
             element:<Privetrouter><Update></Update></Privetrouter>,
           },
           {
             path:"/productbasedbrand/:productbasedbrandId",
-            loader:({params})=> fetch(`http://localhost:5000/products/${params.productbasedbrandId}`),
+            loader:({params})=> fetch(`https://fooddb-server.vercel.app/products/${params.productbasedbrandId}`),
             element:<ProductbasedBrand></ProductbasedBrand>,
           },
         ],

@@ -5,7 +5,6 @@ import { useState } from "react";
 const Cart = () => {
     const cartloader = useLoaderData()
     const [cartt,setCart] = useState(cartloader)
-    console.log(cartloader);
     return (
         <div className="grid grid-cols-3 py-6 gap-7">
             {

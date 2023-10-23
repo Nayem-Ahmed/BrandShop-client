@@ -14,7 +14,7 @@ const Product = () => {
         const addproduct = {name,brand,select,photo,description,rating}
         console.log(addproduct)
         // send data to the server
-        fetch('http://localhost:5000/products',{
+        fetch('https://fooddb-server.vercel.app/products',{
             method:'POST',
             headers:{
                 'content-type':'application/json'

@@ -2,7 +2,7 @@ import React from 'react';
 
 const MyCart = ({ cart,cartt,setCart }) => {
     const handledelete = (id)=>{
-        fetch(`http://localhost:5000/cart/${id}`,{
+        fetch(`https://fooddb-server.vercel.app/cart/${id}`,{
             method: "DELETE",
         })
         .then(res =>res.json())
