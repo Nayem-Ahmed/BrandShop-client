@@ -2,7 +2,7 @@ import React, { useContext, useState } from 'react';
 import { AuthContext } from '../Provider/Authprovider';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { FcGoogle } from 'react-icons/fc';
-import { ToastContainer, toast } from 'react-toastify';
+ import { toast } from 'react-toastify';
 
 const Login = () => {
   const {loginUser,googleLogin} = useContext(AuthContext)
@@ -37,7 +37,7 @@ const Login = () => {
           console.error(error)
           if (setLoginerror) {
             toast('Incorrect password');
-            <ToastContainer />
+          
 
           }
         });
