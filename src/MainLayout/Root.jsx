@@ -5,11 +5,15 @@ import Navbar from '../Components/Navbar';
 
 const Root = () => {
     return (
-        <div className="max-w-screen-xl mx-auto p-3">
+
+
+        <div className='max-w-screen-xl mx-auto'>
             <Navbar></Navbar>
-            <Outlet></Outlet>
+            <div className='  min-h-[calc(100vh-60px)]'>
+                <Outlet />
+            </div>
             <Footer></Footer>
-            
+
         </div>
     );
 };

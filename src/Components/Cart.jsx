@@ -6,7 +6,7 @@ const Cart = () => {
     const cartloader = useLoaderData()
     const [cartt,setCart] = useState(cartloader)
     return (
-        <div className="grid grid-cols-3 py-6 gap-7">
+        <div className="grid grid-cols-3 py-6 gap-7 p-5">
             {
                 cartt.map(cart => <MyCart key={cart._id} cartt={cartt} setCart={setCart} cart={cart}></MyCart>)
             }

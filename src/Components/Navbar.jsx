@@ -2,6 +2,7 @@ import { Link, NavLink } from 'react-router-dom';
 import logo from '../assets/logo-2.png'
 import { useContext, useEffect, useState } from 'react';
 import { AuthContext } from '../Provider/Authprovider';
+import Headroom from 'react-headroom';
 
 const Navbar = () => {
     const { user, logOut } = useContext(AuthContext);
@@ -28,7 +29,8 @@ const Navbar = () => {
         <li className='font-semibold'><NavLink to='/cart'>My Cart</NavLink></li>
     </>
     return (
-        <div className="navbar bg-base-100">
+        <Headroom>
+            <div className="navbar bg-base-100">
             <div className="navbar-start">
                 <div className="dropdown">
                     <label tabIndex={0} className="btn btn-ghost lg:hidden">
@@ -79,6 +81,7 @@ const Navbar = () => {
 
             </div>
         </div>
+        </Headroom>
     );
 };
 

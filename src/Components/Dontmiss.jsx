@@ -2,7 +2,7 @@
 
 const Dontmiss = () => {
     return (
-        <div className="mb-8">
+        <div className="mb-8 p-5">
             <div className="bg-red-500 p-6 text-white text-center rounded-md">
                 <h2 className="font-bold">Don't Miss Out on
                     Tasty Grocery Deals!</h2>

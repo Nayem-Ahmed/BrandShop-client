@@ -28,12 +28,15 @@ const Details = () => {
     return (
 
 
-        <div className="card lg:card-side bg-base-100 shadow-xl mt-8">
-            <figure className="h-48"><img className="" src={photo} alt="Album" /></figure>
-            <div className="card-body">
-                <h2 className="card-title">{brand}</h2>
-                <p className="text-gray-500">{description}</p>
-                <div className="card-actions ">
+        <div className="flex flex-col lg:flex-row md:flex-row shadow-md gap-8 items-center bg-base-100  my-6 p-5 rounded-none mt-8">
+          <div className="basis-1/2">
+            <img className=" " src={photo} alt="Album" />
+            </div>
+
+            <div className="basis-1/2 ">
+                <h2 className="font-bold text-2xl mb-5">{brand}</h2>
+                <p className="text-gray-500 mb-6">{description}</p>
+         
                     <button onClick={handleaddcart} className="btn">
                         <AiOutlineShoppingCart className="text-xl"></AiOutlineShoppingCart>
                        
@@ -41,7 +44,7 @@ const Details = () => {
                     </button>
                 </div>
             </div>
-        </div>
+   
     );
 };
 

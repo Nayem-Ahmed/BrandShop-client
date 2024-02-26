@@ -1,3 +1,7 @@
+ 
+import { Rating } from '@smastrom/react-rating'
+
+import '@smastrom/react-rating/style.css'
 import { Link, useLoaderData } from "react-router-dom";
 
 // import Brand from "./Brand";
@@ -35,33 +39,40 @@ const ProductbasedBrand = () => {
                     </div>
                 </div>
             </div>
-            {
-                loaderbrand.map(brandd => {
-                    const { description } = brandd
-                    const truncatedDescription =
-                        brandd.description.length > 200 ? description.slice(0, 200) + "..." : brandd.description;
-                    return <div key={brandd._id} className="card card-side bg-base-100 shadow-xl mb-8 grid md:grid-cols-2">
-                        <figure><img className="h-80" src={brandd.photo} alt="Movie" /></figure>
-                        <div className="card-body">
-                            <h2 className="card-title">{brandd.name}</h2>
-                            <h2 className="card-title">{brandd.brand}</h2>
-                            <p className="font-semibold">price : {brandd.price}$</p>
-                            {/* <p className="text-gray-500">{brandd.description}</p> */}
-                            <p className="text-gray-500">{truncatedDescription}</p>
-                            <p>{brandd.rating}</p>
-                   
-                            <div className="card-actions">
-                                <Link to={`/details/${brandd._id}`} >
-                                    <button className="btn btn-accent">Details</button>
-                                </Link>
-                                <Link to={`/update/${brandd._id}`} >
-                                    <button className="btn btn-info">Update</button>
-                                </Link>
+            <div className="p-5">
+                {
+                    loaderbrand.map(brandd => {
+                        const { description } = brandd
+                        const truncatedDescription =
+                            brandd.description.length > 200 ? description.slice(0, 200) + "..." : brandd.description;
+                        return <div key={brandd._id} className="card card-side bg-base-100 shadow-xl mb-8 grid md:grid-cols-2 rounded-none">
+                            <figure><img className="w-full h-72" src={brandd.photo} alt="Movie" /></figure>
+                            <div className="card-body">
+                                <h2 className="card-title">{brandd.name}</h2>
+                                <h2 className="card-title">{brandd.brand}</h2>
+                                <p className="font-semibold">price : {brandd.price}$</p>
+                                {/* <p className="text-gray-500">{brandd.description}</p> */}
+                                <p className="text-gray-500">{truncatedDescription}</p>
+                                <p>{brandd.rating}</p>
+                                <Rating
+                                    style={{ maxWidth: 150 }}
+                                    value={brandd.rating}
+                                    readOnly
+                                />
+
+                                <div className="card-actions">
+                                    <Link to={`/details/${brandd._id}`} >
+                                        <button className="btn btn-accent">Details</button>
+                                    </Link>
+                                    <Link to={`/update/${brandd._id}`} >
+                                        <button className="btn btn-info">Update</button>
+                                    </Link>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                })
-            }
+                    })
+                }
+            </div>
         </div>
     );
 };

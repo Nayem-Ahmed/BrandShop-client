@@ -33,7 +33,7 @@ const Product = () => {
 
     }
     return (
-        <div>
+        <div className='my-8'>
             <form onSubmit={handleproductadd} className="max-w-md mx-auto p-6 mt-5 bg-white rounded-lg shadow-lg">
                 <h2 className='text-center font-semibold mb-5 text-xl'>Add Product</h2>
                 <div className="mb-4">
